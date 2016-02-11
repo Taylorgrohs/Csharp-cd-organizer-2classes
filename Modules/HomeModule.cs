@@ -51,6 +51,13 @@ namespace Organize
         model.Add("artist", selectedArtist);
         return View["artist.cshtml", model];
       };
+
+      Get["/search_artist"] = _ => View["search_artists.cshtml"];
+      Post["/view_result"] = _ => {
+        string artist = Request.Form["artist"];
+        List<Artist> results = Artist.SearchArtist(artist);
+        return View["view_result.cshtml", results];
+      };
     }
   }
 }

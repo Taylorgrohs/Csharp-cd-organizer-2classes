@@ -42,5 +42,18 @@ namespace ArtistList
     {
       return _instances[searchId-1];
     }
+    public static List<Artist> SearchArtist(string artist)
+    {
+    List<Artist> results= new List<Artist> {};
+
+      foreach(Artist matchingArtist in _instances)
+      {
+        if (matchingArtist.GetName().ToLower().Contains(artist.ToLower()))
+        {
+          results.Add(matchingArtist);
+        }
+      }
+      return results;
+    }
   }
 }

@@ -1,0 +1,8 @@
+<h1>Search results</h1>
+<ul>
+  @foreach(var artist in Model)
+  {
+    <li><a href="/artist/@artist.GetId()">@artist.GetName()</a></li>
+  }
+</ul>
+<p><a href="/">Add another artist</a></p>
